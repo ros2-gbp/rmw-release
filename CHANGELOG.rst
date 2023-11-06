@@ -2,6 +2,11 @@
 Changelog for package rmw
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+7.2.2 (2023-11-06)
+------------------
+* definition of local means being in the same context. (`#359 <https://github.com/ros2/rmw/issues/359>`_)
+* Contributors: Tomoya Fujita
+
 7.2.1 (2023-07-11)
 ------------------
 * typo fix. (`#355 <https://github.com/ros2/rmw/issues/355>`_)
