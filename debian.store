@@ -1,1 +1,1 @@
-{"base": "99d07fc", "parent": "debian/rolling/rmw_implementation_cmake", "previous": "e86e97a", "trim": "", "trimbase": ""}
+{"base": "c89210c", "parent": "debian/jazzy/rmw_implementation_cmake", "previous": "6f58724", "trim": "", "trimbase": ""}
