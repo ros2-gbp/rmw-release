@@ -1,4 +1,4 @@
-// Copyright 2015 Open Source Robotics Foundation, Inc.
+// Copyright 2020 Open Source Robotics Foundation, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,15 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef RMW__MACROS_H_
-#define RMW__MACROS_H_
+#include "gmock/gmock.h"
+#include "rmw/loaned_message_sequence.h"
 
-#include "rcutils/macros.h"
-
-/// Expand the argument to its literal text
-#define RMW_STRINGIFY(x) RCUTILS_STRINGIFY(x)
-
-/// Indicate that a variable is not used, and prevent compiler from issuing warnings
-#define RMW_WARN_UNUSED RCUTILS_WARN_UNUSED
-
-#endif  // RMW__MACROS_H_
+TEST(rmw_loaned_message_sequence, get_zero_init)
+{
+  rmw_loaned_message_sequence_t sequence = rmw_get_zero_initialized_loaned_message_sequence();
+  EXPECT_EQ(sequence.message_sequence, nullptr);
+  EXPECT_EQ(sequence.size, 0u);
+  EXPECT_EQ(sequence.capacity, 0u);
+}

@@ -2,82 +2,15 @@
 Changelog for package rmw
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-7.4.0 (2024-04-26)
+6.1.2 (2024-05-15)
 ------------------
-* Removed warnings - strict-prototypes (`#365 <https://github.com/ros2/rmw/issues/365>`_)
-* Contributors: Alejandro Hernández Cordero
+* rmw_send_reqponse returns RMW_RET_TIMEOUT. (`#350 <https://github.com/ros2/rmw/issues/350>`_) (`#367 <https://github.com/ros2/rmw/issues/367>`_)
+* Contributors: mergify[bot]
 
-7.3.0 (2023-12-26)
+6.1.1 (2022-11-07)
 ------------------
-* Switch to target_link_libraries. (`#361 <https://github.com/ros2/rmw/issues/361>`_)
-* Remove unnecessary c++14 flag. (`#360 <https://github.com/ros2/rmw/issues/360>`_)
-* Contributors: Chris Lalancette
-
-7.2.2 (2023-11-06)
-------------------
-* definition of local means being in the same context. (`#359 <https://github.com/ros2/rmw/issues/359>`_)
-* Contributors: Tomoya Fujita
-
-7.2.1 (2023-07-11)
-------------------
-* typo fix. (`#355 <https://github.com/ros2/rmw/issues/355>`_)
-* Contributors: Tomoya Fujita
-
-7.2.0 (2023-04-27)
-------------------
-
-7.1.0 (2023-04-12)
-------------------
-* Dynamic Subscription (BONUS: Allocators): rmw (`#353 <https://github.com/ros2/rmw/issues/353>`_)
-* Runtime Interface Reflection: rmw (`#340 <https://github.com/ros2/rmw/issues/340>`_)
-* [rmw] Improve handling of dynamic discovery (`#338 <https://github.com/ros2/rmw/issues/338>`_)
-* rmw_send_reqponse returns RMW_RET_TIMEOUT. (`#350 <https://github.com/ros2/rmw/issues/350>`_)
-* Add a note about asynchronicity of discovery. (`#352 <https://github.com/ros2/rmw/issues/352>`_)
-* Add matched event support (`#331 <https://github.com/ros2/rmw/issues/331>`_)
-* Add type hash to rmw_topic_endpoint_info_t (rep2011) (`#348 <https://github.com/ros2/rmw/issues/348>`_)
-* Add in inconsistent topic defines and data structures. (`#339 <https://github.com/ros2/rmw/issues/339>`_)
-* Update documented expectations for GIDs (`#335 <https://github.com/ros2/rmw/issues/335>`_)
-* Contributors: Barry Xu, Chris Lalancette, Emerson Knapp, Geoffrey Biggs, Jacob Perron, Tomoya Fujita, William Woodall, methylDragon
-
-7.0.1 (2023-02-24)
-------------------
-* Fix rmw->rwm typo (`#347 <https://github.com/ros2/rmw/issues/347>`_)
-* Contributors: Emerson Knapp
-
-7.0.0 (2023-02-13)
-------------------
-* Add rmw count clients, services (`#334 <https://github.com/ros2/rmw/issues/334>`_)
-* make writer_guid uint8_t[] instead of int8_t for consistency with rmw_gid_t (`#329 <https://github.com/ros2/rmw/issues/329>`_)
-* Update rmw to C++17. (`#346 <https://github.com/ros2/rmw/issues/346>`_)
-* Reduce GID storage to 16 bytes. (`#345 <https://github.com/ros2/rmw/issues/345>`_)
-* Move the RMW_CHECK_TYPE_IDENTIFIERS_MATCH macro to a C header. (`#343 <https://github.com/ros2/rmw/issues/343>`_)
-* [rolling] Update maintainers - 2022-11-07 (`#337 <https://github.com/ros2/rmw/issues/337>`_)
-* Contributors: Audrow Nash, Brian, Chris Lalancette, Minju, Lee
-
-6.4.0 (2022-11-02)
-------------------
-* Remove unused test_loaned_message_sequence.cpp (`#336 <https://github.com/ros2/rmw/issues/336>`_)
-* callback can be NULL to clear in Listener APIs. (`#332 <https://github.com/ros2/rmw/issues/332>`_)
-* Add rmw_get_gid_for_client method (`#327 <https://github.com/ros2/rmw/issues/327>`_)
-* Contributors: Brian, Nikolai Morin, Tomoya Fujita
-
-6.3.1 (2022-09-13)
-------------------
-
-6.3.0 (2022-05-03)
-------------------
-* Add 'best available' QoS policies (`#320 <https://github.com/ros2/rmw/issues/320>`_)
-  The best available policy should select the highest level of service for the QoS setting while matching with the majority of endpoints.
-  For example, in the case of a DDS middleware subscription, this means:
-  * Prefer reliable reliability if all existing publishers on the same topic are reliable, otherwise use best effort.
-  * Prefer transient local durability if all existing publishers on the same topic are transient local, otherwise use volatile.
-  * Prefer manual by topic liveliness if all existing publishers on the same topic are manual by topic, otherwise use automatic.
-  * Use a deadline that is equal to the largest deadline of existing publishers on the same topic.
-  * Use a liveliness lease duration that is equal to the largest lease duration of existing publishers on the same topic.
-* Contributors: Jacob Perron
-
-6.2.0 (2022-04-29)
-------------------
+* callback can be NULL to clear in Listener APIs. (`#332 <https://github.com/ros2/rmw/issues/332>`_) (`#333 <https://github.com/ros2/rmw/issues/333>`_)
+* Contributors: mergify[bot]
 
 6.1.0 (2022-03-25)
 ------------------
@@ -185,7 +118,7 @@ Changelog for package rmw
 1.1.0 (2020-06-18)
 ------------------
 * Add message lost subscription event (`#232 <https://github.com/ros2/rmw/issues/232>`_)
-* Move statuses definitions to rmw/events_statuses/ (`#232 <https://github.com/ros2/rmw/issues/232>`_)
+* Move statuses definitions to rmw/events_statuses/*.h (`#232 <https://github.com/ros2/rmw/issues/232>`_)
 * Increase rmw testing coverage above 95% (`#238 <https://github.com/ros2/rmw/issues/238>`_)
 * Handle zero-length names_and_types properly (`#239 <https://github.com/ros2/rmw/issues/239>`_)
 * Add missing RMW_PUBLIC to security_options_set_root_path (`#236 <https://github.com/ros2/rmw/issues/236>`_)

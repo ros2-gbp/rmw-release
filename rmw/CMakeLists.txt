@@ -7,10 +7,9 @@ if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
 endif()
 
-# Default to C++17
+# Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  set(CMAKE_CXX_STANDARD 14)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -20,7 +19,6 @@ endif()
 find_package(ament_cmake_ros REQUIRED)
 
 find_package(rcutils REQUIRED)
-find_package(rosidl_dynamic_typesupport REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
 
 include(cmake/configure_rmw_library.cmake)
@@ -28,7 +26,6 @@ include(cmake/configure_rmw_library.cmake)
 set(rmw_sources
   "src/allocators.c"
   "src/convert_rcutils_ret_to_rmw_ret.c"
-  "src/discovery_options.c"
   "src/event.c"
   "src/init.c"
   "src/init_options.c"
@@ -55,21 +52,19 @@ add_library(${PROJECT_NAME} ${rmw_sources})
 target_include_directories(${PROJECT_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
-target_link_libraries(${PROJECT_NAME} PUBLIC
-  rcutils::rcutils
-  rosidl_dynamic_typesupport::rosidl_dynamic_typesupport
-  rosidl_runtime_c::rosidl_runtime_c
-)
 
 if(BUILD_TESTING AND NOT RCUTILS_DISABLE_FAULT_INJECTION)
   target_compile_definitions(${PROJECT_NAME} PUBLIC RCUTILS_ENABLE_FAULT_INJECTION)
 endif()
 
+ament_target_dependencies(${PROJECT_NAME}
+  "rcutils"
+  "rosidl_runtime_c"
+)
 configure_rmw_library(${PROJECT_NAME} LANGUAGE "C")
 
 ament_export_dependencies(
   rcutils
-  rosidl_dynamic_typesupport
   rosidl_runtime_c
 )
 
