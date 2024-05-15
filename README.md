@@ -1,3 +1,28 @@
+## rmw (humble) - 6.1.2-1
+
+The packages in the `rmw` repository were released into the `humble` distro by running `/usr/bin/bloom-release -r humble -y rmw` on `Wed, 15 May 2024 23:06:49 -0000`
+
+These packages were released:
+- `rmw`
+- `rmw_implementation_cmake`
+
+Version of package(s) in repository `rmw`:
+
+- upstream repository: https://github.com/ros2/rmw.git
+- release repository: https://github.com/ros2-gbp/rmw-release.git
+- rosdistro version: `6.1.1-1`
+- old version: `6.1.1-1`
+- new version: `6.1.2-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.24.0`
+- rosdistro version: `0.9.1`
+- vcstools version: `0.1.42`
+
+
 ## rmw (rolling) - 7.4.0-1
 
 The packages in the `rmw` repository were released into the `rolling` distro by running `/usr/bin/bloom-release rmw --rosdistro rolling --non-interactive` on `Fri, 26 Apr 2024 17:14:37 -0000`
