@@ -2,6 +2,11 @@
 Changelog for package rmw
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+7.5.1 (2024-12-20)
+------------------
+* Fix arg name in rmw_take_response() doc (`#384 <https://github.com/ros2/rmw/issues/384>`_)
+* Contributors: Christophe Bedard
+
 7.5.0 (2024-10-03)
 ------------------
 * Initialize the NULL strucutre with static value. (`#378 <https://github.com/ros2/rmw/issues/378>`_)
