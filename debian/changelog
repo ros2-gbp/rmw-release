@@ -1,0 +1,14 @@
+ros-rolling-rmw-security-common (7.8.0-1noble) noble; urgency=high
+
+
+
+ -- Alejandro Hernandez Cordero <alejandro@openrobotics.org>  Tue, 04 Mar 2025 23:00:00 -0000
+
+ros-rolling-rmw-security-common (7.7.0-1noble) noble; urgency=high
+
+  * Added rmw_security_common (#388 <https://github.com/ros2/rmw/issues/388>)
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernandez Cordero <alejandro@openrobotics.org>  Thu, 13 Feb 2025 23:00:00 -0000
+
+
