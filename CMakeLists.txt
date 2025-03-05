@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.14)
 
 project(rmw)
 
@@ -29,6 +29,7 @@ set(rmw_sources
   "src/allocators.c"
   "src/convert_rcutils_ret_to_rmw_ret.c"
   "src/discovery_options.c"
+  "src/enclave.c"
   "src/event.c"
   "src/init.c"
   "src/init_options.c"
