@@ -1,3 +1,29 @@
+## rmw (rolling) - 7.8.0-1
+
+The packages in the `rmw` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --rosdistro rolling --track rolling rmw` on `Wed, 05 Mar 2025 09:49:18 -0000`
+
+These packages were released:
+- `rmw`
+- `rmw_implementation_cmake`
+- `rmw_security_common`
+
+Version of package(s) in repository `rmw`:
+
+- upstream repository: https://github.com/ros2/rmw.git
+- release repository: https://github.com/ros2-gbp/rmw-release.git
+- rosdistro version: `7.7.0-1`
+- old version: `7.7.0-1`
+- new version: `7.8.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.25.1`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## rmw (rolling) - 7.7.0-1
 
 The packages in the `rmw` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --rosdistro rolling --track rolling rmw` on `Fri, 14 Feb 2025 09:25:31 -0000`
