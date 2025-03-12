@@ -19,7 +19,6 @@ RMW_WARN_UNUSED
 rmw_message_info_t
 rmw_get_zero_initialized_message_info(void)
 {
-  // All members are initialized to 0 or NULL by C99 6.7.8/10.
-  static const rmw_message_info_t zero_initialized_message_info;
+  rmw_message_info_t zero_initialized_message_info = {0};
   return zero_initialized_message_info;
 }
