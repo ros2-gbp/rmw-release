@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.14)
 
 project(rmw)
 
@@ -17,7 +17,8 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-find_package(ament_cmake_ros REQUIRED)
+find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros_core REQUIRED)
 
 find_package(rcutils REQUIRED)
 find_package(rosidl_dynamic_typesupport REQUIRED)
@@ -29,6 +30,7 @@ set(rmw_sources
   "src/allocators.c"
   "src/convert_rcutils_ret_to_rmw_ret.c"
   "src/discovery_options.c"
+  "src/enclave.c"
   "src/event.c"
   "src/init.c"
   "src/init_options.c"
