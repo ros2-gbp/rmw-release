@@ -1,0 +1,27 @@
+ros-rolling-rmw-security-common (7.8.2-1noble) noble; urgency=high
+
+  * Export rmw dependency (#400 <https://github.com/ros2/rmw/issues/400>)
+  * Contributors: yadunund
+
+ -- Alejandro Hernandez Cordero <alejandro@openrobotics.org>  Fri, 18 Apr 2025 05:00:00 -0000
+
+ros-rolling-rmw-security-common (7.8.1-1noble) noble; urgency=high
+
+
+
+ -- Alejandro Hernandez Cordero <alejandro@openrobotics.org>  Tue, 11 Mar 2025 05:00:00 -0000
+
+ros-rolling-rmw-security-common (7.8.0-1noble) noble; urgency=high
+
+
+
+ -- Alejandro Hernandez Cordero <alejandro@openrobotics.org>  Wed, 05 Mar 2025 06:00:00 -0000
+
+ros-rolling-rmw-security-common (7.7.0-1noble) noble; urgency=high
+
+  * Added rmw_security_common (#388 <https://github.com/ros2/rmw/issues/388>)
+  * Contributors: Alejandro Hernández Cordero
+
+ -- Alejandro Hernandez Cordero <alejandro@openrobotics.org>  Fri, 14 Feb 2025 06:00:00 -0000
+
+
