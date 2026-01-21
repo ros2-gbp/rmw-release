@@ -38,15 +38,6 @@ if(TARGET test_event)
   target_link_libraries(test_event ${PROJECT_NAME})
 endif()
 
-ament_add_gmock(test_enclave
-  test_enclave.cpp
-  # Append the directory of librmw so it is found at test time.
-  APPEND_LIBRARY_DIRS "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
-)
-if(TARGET test_enclave)
-  target_link_libraries(test_enclave ${PROJECT_NAME})
-endif()
-
 ament_add_gmock(test_init_options
   test_init_options.cpp
   # Append the directory of librmw so it is found at test time.
@@ -204,26 +195,6 @@ ament_add_gmock(test_topic_endpoint_info
 )
 if(TARGET test_topic_endpoint_info)
   target_link_libraries(test_topic_endpoint_info ${PROJECT_NAME}
-  osrf_testing_tools_cpp::memory_tools)
-endif()
-
-ament_add_gmock(test_service_endpoint_info
-  test_service_endpoint_info.cpp
-  # Append the directory of librmw so it is found at test time.
-  APPEND_LIBRARY_DIRS "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
-)
-if(TARGET test_service_endpoint_info)
-  target_link_libraries(test_service_endpoint_info ${PROJECT_NAME}
-  osrf_testing_tools_cpp::memory_tools)
-endif()
-
-ament_add_gmock(test_service_endpoint_info_array
-  test_service_endpoint_info_array.cpp
-  # Append the directory of librmw so it is found at test time.
-  APPEND_LIBRARY_DIRS "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
-)
-if(TARGET test_service_endpoint_info_array)
-  target_link_libraries(test_service_endpoint_info_array ${PROJECT_NAME}
   osrf_testing_tools_cpp::memory_tools)
 endif()
 

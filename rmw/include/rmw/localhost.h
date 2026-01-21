@@ -1,4 +1,4 @@
-// Copyright 2018 Open Source Robotics Foundation, Inc.
+// Copyright 2019 Open Source Robotics Foundation, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,29 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <stddef.h>
+#ifndef RMW__LOCALHOST_H_
+#define RMW__LOCALHOST_H_
 
-#include "rmw/domain_id.h"
-#include "rmw/init.h"
-#include "rmw/init_options.h"
+#include "rmw/visibility_control.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-rmw_context_t
-rmw_get_zero_initialized_context(void)
+/// Used to specify if the context can only communicate through localhost.
+typedef enum RMW_PUBLIC_TYPE rmw_localhost_only_e
 {
-  return (const rmw_context_t) {
-           .instance_id = 0,
-           .implementation_identifier = NULL,
-           .options = rmw_get_zero_initialized_init_options(),
-           .actual_domain_id = 0u,
-           .impl = NULL
-  };  // NOLINT(readability/braces): false positive
-}
+  /// Uses ROS_LOCALHOST_ONLY environment variable.
+  RMW_LOCALHOST_ONLY_DEFAULT = 0,
+  /// Forces using only localhost.
+  RMW_LOCALHOST_ONLY_ENABLED = 1,
+  /// Forces disabling localhost only.
+  RMW_LOCALHOST_ONLY_DISABLED = 2,
+} rmw_localhost_only_t;
 
 #ifdef __cplusplus
 }
 #endif
+
+#endif  // RMW__LOCALHOST_H_

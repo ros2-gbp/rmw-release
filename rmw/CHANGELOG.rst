@@ -2,87 +2,28 @@
 Changelog for package rmw
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-7.9.1 (2025-11-18)
+7.3.3 (2026-01-21)
 ------------------
-* add: get clients, servers info (`#371 <https://github.com/ros2/rmw//issues/371>`_)
-* Fix REP url locations (`#406 <https://github.com/ros2/rmw//issues/406>`_)
-* Update link to rmw API docs (`#405 <https://github.com/ros2/rmw//issues/405>`_)
-* Don't assume a DDS-based implementation in function docs (`#402 <https://github.com/ros2/rmw//issues/402>`_)
-* Contributors: Christophe Bedard, Minju, Lee, Tim Clephas
+* Fix REP url locations (`#406 <https://github.com/ros2/rmw/issues/406>`_) (`#408 <https://github.com/ros2/rmw/issues/408>`_)
+  This popped up in my global replace
+  (cherry picked from commit afa7d196c704e2a22be2b460d498872a05df5212)
+  Co-authored-by: Tim Clephas <tim.clephas@nobleo.nl>
+* Contributors: mergify[bot]
 
-7.9.0 (2025-04-28)
+7.3.2 (2025-03-12)
 ------------------
+* Added rmw_event_type_is_supported (`#395 <https://github.com/ros2/rmw/issues/395>`_) (`#396 <https://github.com/ros2/rmw/issues/396>`_)
+  (cherry picked from commit 5cf8420511fbf64a741e94c493445adccf05e272)
+  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* a couple of typo fixes for doc section. (`#391 <https://github.com/ros2/rmw/issues/391>`_) (`#392 <https://github.com/ros2/rmw/issues/392>`_)
+  (cherry picked from commit 95ac9726e5fea128d9e825775d3e5eccaf0a0713)
+  Co-authored-by: Tomoya Fujita <Tomoya.Fujita@sony.com>
+* Contributors: mergify[bot]
 
-7.8.2 (2025-04-18)
+7.3.1 (2024-04-24)
 ------------------
-* Switch to ament_cmake_ros_core package (`#397 <https://github.com/ros2/rmw/issues/397>`_)
-* Contributors: Michael Carroll
-
-7.8.1 (2025-03-11)
-------------------
-* Added rmw_event_type_is_supported (`#395 <https://github.com/ros2/rmw/issues/395>`_)
-* Contributors: Alejandro Hernández Cordero
-
-7.8.0 (2025-03-05)
-------------------
-* add enclave option functions. (`#393 <https://github.com/ros2/rmw/issues/393>`_)
-* a couple of typo fixes for doc section. (`#391 <https://github.com/ros2/rmw/issues/391>`_)
-* update cmake version (`#389 <https://github.com/ros2/rmw/issues/389>`_)
-* Contributors: Alejandro Hernández Cordero, Tomoya Fujita
-
-7.7.0 (2025-02-14)
-------------------
-* get_zero_initialized_xxx functions return zero initialized structure. (`#380 <https://github.com/ros2/rmw/issues/380>`_)
-  * get_zero_initialized_xxx functions return zero initialized structure.
-  * introduce RMW_EVENT_TYPE_MAX in rmw_event_type_t.
-  * add a comment and more tests for rmw_event_type.
-  ---------
-* Contributors: Tomoya Fujita
-
-7.6.0 (2025-01-31)
-------------------
-* move qos_profile_rosout_default from rcl. (`#381 <https://github.com/ros2/rmw/issues/381>`_)
-* Fix ugly overwritten warning messages on error paths. (`#387 <https://github.com/ros2/rmw/issues/387>`_)
-  This mostly has to do with calling rmw_reset_error() in
-  the proper time in the tests, but we also change one
-  test for an allocator to properly check for a valid allocator.
-* Fix rmw_validate_namespace{_with_size} error handling. (`#386 <https://github.com/ros2/rmw/issues/386>`_)
-  * Fix rmw_validate_namespace{_with_size} error handling.
-  It should always set an error, even on invalid arguments.
-* Contributors: Chris Lalancette, Tomoya Fujita
-
-7.5.1 (2024-12-20)
-------------------
-* Fix arg name in rmw_take_response() doc (`#384 <https://github.com/ros2/rmw/issues/384>`_)
-* Contributors: Christophe Bedard
-
-7.5.0 (2024-10-03)
-------------------
-* Initialize the NULL strucutre with static value. (`#378 <https://github.com/ros2/rmw/issues/378>`_)
-* Contributors: Tomoya Fujita
-
-7.4.3 (2024-07-29)
-------------------
-* remove rmw_localhost_only_t. (`#376 <https://github.com/ros2/rmw/issues/376>`_)
-* Fix typo with RMW_DURATION_UNSPECIFIED (`#375 <https://github.com/ros2/rmw/issues/375>`_)
-* Fix typo in rmw_validate\_*_with_size() doc (`#374 <https://github.com/ros2/rmw/issues/374>`_)
-* Contributors: Christophe Bedard, Tomoya Fujita
-
-7.4.2 (2024-07-09)
-------------------
-* removed deprecated rmw_node_assert_liveliness() (`#373 <https://github.com/ros2/rmw/issues/373>`_)
-* Contributors: Alejandro Hernández Cordero
-
-7.4.1 (2024-06-17)
-------------------
-* add mingw support (`#370 <https://github.com/ros2/rmw/issues/370>`_)
-* Minor typo fix (`#368 <https://github.com/ros2/rmw/issues/368>`_)
-* Contributors: Felix F Xu, G.A. vd. Hoorn
-
-7.4.0 (2024-04-26)
-------------------
-* Removed warnings - strict-prototypes (`#365 <https://github.com/ros2/rmw/issues/365>`_)
-* Contributors: Alejandro Hernández Cordero
+* Removed warnings - strict-prototypes (`#365 <https://github.com/ros2/rmw/issues/365>`_) (`#366 <https://github.com/ros2/rmw/issues/366>`_)
+* Contributors: mergify[bot]
 
 7.3.0 (2023-12-26)
 ------------------

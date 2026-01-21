@@ -22,15 +22,14 @@
 rmw_security_options_t
 rmw_get_zero_initialized_security_options(void)
 {
-  // All members are initialized to 0 or NULL by C99 6.7.8/10.
-  static const rmw_security_options_t zero_initialized_options;
+  rmw_security_options_t zero_initialized_options = {0, NULL};
   return zero_initialized_options;
 }
 
 rmw_security_options_t
 rmw_get_default_security_options(void)
 {
-  static const rmw_security_options_t default_options = {
+  rmw_security_options_t default_options = {
     RMW_SECURITY_ENFORCEMENT_PERMISSIVE,
     NULL,
   };
