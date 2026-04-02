@@ -72,7 +72,13 @@ typedef enum RMW_PUBLIC_TYPE rmw_endpoint_type_e
   RMW_ENDPOINT_PUBLISHER,
 
   /// Listens for and receives messages from a topic
-  RMW_ENDPOINT_SUBSCRIPTION
+  RMW_ENDPOINT_SUBSCRIPTION,
+
+  /// Sends requests and receives responses as part of a service client
+  RMW_ENDPOINT_CLIENT,
+
+  /// Receives requests and sends responses as part of a service server
+  RMW_ENDPOINT_SERVER
 } rmw_endpoint_type_t;
 
 /// Unique network flow endpoints requirement enumeration
@@ -178,6 +184,17 @@ typedef struct RMW_PUBLIC_TYPE rmw_subscription_options_s
 
   /// Used to create a content filter options during subscription creation.
   rmw_subscription_content_filter_options_t * content_filter_options;
+
+  /// Comma-separated list of acceptable buffer backend names for this endpoint.
+  /**
+   * NULL, empty string, or "cpu" all mean CPU-only (default for backward compat).
+   * "any" means all installed backends are acceptable.
+   * Comma-separated for specific backends, e.g. "cuda,demo".
+   * CPU is always implicitly acceptable regardless of this value.
+   * The RMW will validate that each specified backend is installed and will
+   * report an error if any are not available.
+   */
+  const char * acceptable_buffer_backends;
 } rmw_subscription_options_t;
 
 typedef struct RMW_PUBLIC_TYPE rmw_subscription_s
@@ -207,6 +224,9 @@ typedef struct RMW_PUBLIC_TYPE rmw_subscription_s
 
   /// Indicates whether content filtered topic of this subscription is enabled
   bool is_cft_enabled;
+
+  /// Indicates whether this subscription supports content filtered topic feature
+  bool is_cft_supported;
 } rmw_subscription_t;
 
 /// A handle to an rmw service
@@ -455,11 +475,7 @@ typedef enum RMW_PUBLIC_TYPE rmw_qos_durability_policy_e
   RMW_QOS_POLICY_DURABILITY_BEST_AVAILABLE
 } rmw_qos_durability_policy_t;
 
-#define RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_NODE_DEPRECATED_MSG \
-  "RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_NODE is deprecated. " \
-  "Use RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_TOPIC if manually asserted liveliness is needed."
-
-#ifndef _WIN32
+#ifndef _MSC_VER
 # define RMW_DECLARE_DEPRECATED(name, msg) name __attribute__((deprecated(msg)))
 #else
 # define RMW_DECLARE_DEPRECATED(name, msg) name __pragma(deprecated(name))
@@ -476,13 +492,6 @@ typedef enum RMW_PUBLIC_TYPE rmw_qos_liveliness_policy_e
 
   /// The signal that establishes a Topic is alive comes from the ROS rmw layer.
   RMW_QOS_POLICY_LIVELINESS_AUTOMATIC = 1,
-
-  /// Explicitly asserting node liveliness is required in this case.
-  /// This option is deprecated, use RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_TOPIC if your application
-  /// requires to assert liveliness manually.
-  RMW_DECLARE_DEPRECATED(
-    RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_NODE,
-    RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_NODE_DEPRECATED_MSG) = 2,
 
   /// The signal that establishes a Topic is alive is at the Topic level. Only publishing a message
   /// on the Topic or an explicit signal from the application to assert liveliness on the Topic
@@ -585,7 +594,7 @@ typedef struct RMW_PUBLIC_TYPE rmw_qos_profile_s
   struct rmw_time_s deadline;
   /// The age at which messages are considered expired and no longer valid
   /**
-    * RMW_DURATION_UNSPEFICIED will use the RMW implementation's default value,
+    * RMW_DURATION_UNSPECIFIED will use the RMW implementation's default value,
     *   which may or may not be infinite.
     * RMW_DURATION_INFINITE explicitly states that messages do not expire.
     */
@@ -594,7 +603,7 @@ typedef struct RMW_PUBLIC_TYPE rmw_qos_profile_s
   enum rmw_qos_liveliness_policy_e liveliness;
   /// The time within which the RMW node or publisher must show that it is alive
   /**
-    * RMW_DURATION_UNSPEFICIED will use the RMW implementation's default value,
+    * RMW_DURATION_UNSPECIFIED will use the RMW implementation's default value,
     *   which may or may not be infinite.
     * RMW_DURATION_INFINITE explicitly states that liveliness is not enforced.
     */
