@@ -297,7 +297,7 @@ tracks:
     last_version: 7.10.1
     name: rmw
     patches: null
-    release_inc: '4'
+    release_inc: '5'
     release_repo_url: null
     release_tag: :{version}
     ros_distro: lyrical
