@@ -1,0 +1,12 @@
+Source: ros-lyrical-rmw
+Section: misc
+Priority: optional
+Maintainer: Brandon Ong <brandon@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), ros-lyrical-ament-cmake, ros-lyrical-ament-cmake-gmock <!nocheck>, ros-lyrical-ament-cmake-ros-core, ros-lyrical-ament-cmake-version, ros-lyrical-ament-lint-auto <!nocheck>, ros-lyrical-ament-lint-common <!nocheck>, ros-lyrical-osrf-testing-tools-cpp <!nocheck>, ros-lyrical-rcutils, ros-lyrical-rosidl-dynamic-typesupport, ros-lyrical-rosidl-runtime-c, ros-lyrical-ros-workspace
+Homepage: https://index.ros.org/p/rmw/#lyrical
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-rmw
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lyrical-rcutils, ros-lyrical-rosidl-dynamic-typesupport, ros-lyrical-rosidl-runtime-c, ros-lyrical-ros-workspace
+Description: Contains the ROS middleware API.
