@@ -2,6 +2,9 @@
 Changelog for package rmw
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+7.11.0 (2026-05-06)
+-------------------
+
 7.10.1 (2026-04-09)
 -------------------
 * find_package ament_cmake_gtest (`#417 <https://github.com/ros2/rmw/issues/417>`_)
