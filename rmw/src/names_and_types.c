@@ -24,8 +24,11 @@
 rmw_names_and_types_t
 rmw_get_zero_initialized_names_and_types(void)
 {
-  // All members are initialized to 0 or NULL by C99 6.7.8/10.
-  static const rmw_names_and_types_t zero;
+  static rmw_names_and_types_t zero = {
+    .names = {0, NULL, {NULL, NULL, NULL, NULL, NULL}},
+    .types = NULL,
+  };
+  zero.names = rcutils_get_zero_initialized_string_array();
   return zero;
 }
 
@@ -58,7 +61,7 @@ rmw_names_and_types_init(
   RCUTILS_CAN_RETURN_WITH_ERROR_OF(RMW_RET_INVALID_ARGUMENT);
   RCUTILS_CAN_RETURN_WITH_ERROR_OF(RMW_RET_BAD_ALLOC);
 
-  if (!rcutils_allocator_is_valid(allocator)) {
+  if (!allocator) {
     RMW_SET_ERROR_MSG("allocator is null");
     return RMW_RET_INVALID_ARGUMENT;
   }

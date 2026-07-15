@@ -37,10 +37,10 @@ rmw_qos_policy_kind_to_str(rmw_qos_policy_kind_t kind)
       return "liveliness_lease_duration";
     case RMW_QOS_POLICY_AVOID_ROS_NAMESPACE_CONVENTIONS:
       return "avoid_ros_namespace_conventions";
-    case RMW_QOS_POLICY_INVALID:
+    case RMW_QOS_POLICY_INVALID:  // fallthrough
+    default:
       return NULL;
   }
-  return NULL;
 }
 
 const char *
@@ -53,12 +53,10 @@ rmw_qos_durability_policy_to_str(enum rmw_qos_durability_policy_e value)
       return "transient_local";
     case RMW_QOS_POLICY_DURABILITY_VOLATILE:
       return "volatile";
-    case RMW_QOS_POLICY_DURABILITY_BEST_AVAILABLE:
-      return "best_available";
-    case RMW_QOS_POLICY_DURABILITY_UNKNOWN:
+    case RMW_QOS_POLICY_DURABILITY_UNKNOWN:  // fallthrough
+    default:
       return NULL;
   }
-  return NULL;
 }
 
 const char *
@@ -71,10 +69,10 @@ rmw_qos_history_policy_to_str(enum rmw_qos_history_policy_e value)
       return "keep_last";
     case RMW_QOS_POLICY_HISTORY_KEEP_ALL:
       return "keep_all";
-    case RMW_QOS_POLICY_HISTORY_UNKNOWN:
+    case RMW_QOS_POLICY_HISTORY_UNKNOWN:  // fallthrough
+    default:
       return NULL;
   }
-  return NULL;
 }
 
 const char *
@@ -87,12 +85,10 @@ rmw_qos_liveliness_policy_to_str(enum rmw_qos_liveliness_policy_e value)
       return "automatic";
     case RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_TOPIC:
       return "manual_by_topic";
-    case RMW_QOS_POLICY_LIVELINESS_BEST_AVAILABLE:
-      return "best_available";
-    case RMW_QOS_POLICY_LIVELINESS_UNKNOWN:
+    case RMW_QOS_POLICY_LIVELINESS_UNKNOWN:  // fallthrough
+    default:
       return NULL;
   }
-  return NULL;
 }
 
 const char *
@@ -105,12 +101,10 @@ rmw_qos_reliability_policy_to_str(enum rmw_qos_reliability_policy_e value)
       return "reliable";
     case RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT:
       return "best_effort";
-    case RMW_QOS_POLICY_RELIABILITY_BEST_AVAILABLE:
-      return "best_available";
-    case RMW_QOS_POLICY_RELIABILITY_UNKNOWN:
+    case RMW_QOS_POLICY_RELIABILITY_UNKNOWN:  // fallthrough
+    default:
       return NULL;
   }
-  return NULL;
 }
 
 #define RMW_QOS_STREQ_WITH_LITERAL(string_literal, string) \
@@ -163,9 +157,6 @@ rmw_qos_durability_policy_from_str(const char * str)
   if (RMW_QOS_STREQ_WITH_LITERAL("volatile", str)) {
     return RMW_QOS_POLICY_DURABILITY_VOLATILE;
   }
-  if (RMW_QOS_STREQ_WITH_LITERAL("best_available", str)) {
-    return RMW_QOS_POLICY_DURABILITY_BEST_AVAILABLE;
-  }
   return RMW_QOS_POLICY_DURABILITY_UNKNOWN;
 }
 
@@ -198,9 +189,6 @@ rmw_qos_liveliness_policy_from_str(const char * str)
   if (RMW_QOS_STREQ_WITH_LITERAL("manual_by_topic", str)) {
     return RMW_QOS_POLICY_LIVELINESS_MANUAL_BY_TOPIC;
   }
-  if (RMW_QOS_STREQ_WITH_LITERAL("best_available", str)) {
-    return RMW_QOS_POLICY_LIVELINESS_BEST_AVAILABLE;
-  }
   return RMW_QOS_POLICY_LIVELINESS_UNKNOWN;
 }
 
@@ -216,9 +204,6 @@ rmw_qos_reliability_policy_from_str(const char * str)
   }
   if (RMW_QOS_STREQ_WITH_LITERAL("best_effort", str)) {
     return RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT;
-  }
-  if (RMW_QOS_STREQ_WITH_LITERAL("best_available", str)) {
-    return RMW_QOS_POLICY_RELIABILITY_BEST_AVAILABLE;
   }
   return RMW_QOS_POLICY_RELIABILITY_UNKNOWN;
 }
