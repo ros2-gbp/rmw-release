@@ -22,14 +22,8 @@
 rmw_topic_endpoint_info_t
 rmw_get_zero_initialized_topic_endpoint_info(void)
 {
-#ifdef __clang__
-# pragma clang diagnostic push
-# pragma clang diagnostic ignored "-Wmissing-field-initializers"
-#endif
-  rmw_topic_endpoint_info_t zero = {0};
-#ifdef __clang__
-# pragma clang diagnostic pop
-#endif
+  // All members are initialized to 0 or NULL by C99 6.7.8/10.
+  static const rmw_topic_endpoint_info_t zero;
   return zero;
 }
 
@@ -147,6 +141,18 @@ rmw_topic_endpoint_info_set_topic_type(
     return RMW_RET_INVALID_ARGUMENT;
   }
   return _rmw_topic_endpoint_info_copy_str(&topic_endpoint_info->topic_type, topic_type, allocator);
+}
+
+rmw_ret_t
+rmw_topic_endpoint_info_set_topic_type_hash(
+  rmw_topic_endpoint_info_t * topic_endpoint_info,
+  const rosidl_type_hash_t * type_hash)
+{
+  RCUTILS_CAN_RETURN_WITH_ERROR_OF(RMW_RET_INVALID_ARGUMENT);
+  RCUTILS_CHECK_ARGUMENT_FOR_NULL(topic_endpoint_info, RMW_RET_INVALID_ARGUMENT);
+  RCUTILS_CHECK_ARGUMENT_FOR_NULL(type_hash, RMW_RET_INVALID_ARGUMENT);
+  topic_endpoint_info->topic_type_hash = *type_hash;
+  return RMW_RET_OK;
 }
 
 rmw_ret_t
