@@ -57,9 +57,9 @@ macro(configure_rmw_library library_target)
     if(CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID MATCHES "Clang")
       # Set the visibility of symbols to hidden by default for gcc and clang
       # (this is already the default on Windows)
-      target_compile_options(${library_target}
-        PRIVATE
-        -fvisibility=hidden
+      set_target_properties(${library_target}
+        PROPERTIES
+        COMPILE_FLAGS "-fvisibility=hidden"
       )
     endif()
 
@@ -68,11 +68,9 @@ macro(configure_rmw_library library_target)
     if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
       # Set the visibility of symbols to hidden by default for gcc and clang
       # (this is already the default on Windows)
-      # Only apply -fvisibility-inlines-hidden to C++ code, not C code
-      target_compile_options(${library_target}
-        PRIVATE
-        -fvisibility=hidden
-        $<$<COMPILE_LANGUAGE:CXX>:-fvisibility-inlines-hidden>
+      set_target_properties(${library_target}
+        PROPERTIES
+        COMPILE_FLAGS "-fvisibility=hidden -fvisibility-inlines-hidden"
       )
     endif()
 
