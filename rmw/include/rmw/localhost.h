@@ -1,4 +1,4 @@
-// Copyright 2022 Open Source Robotics Foundation, Inc.
+// Copyright 2019 Open Source Robotics Foundation, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,10 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef RMW__EVENTS_STATUSES__INCOMPATIBLE_TYPE_H_
-#define RMW__EVENTS_STATUSES__INCOMPATIBLE_TYPE_H_
-
-#include <stdint.h>
+#ifndef RMW__LOCALHOST_H_
+#define RMW__LOCALHOST_H_
 
 #include "rmw/visibility_control.h"
 
@@ -24,17 +22,19 @@ extern "C"
 {
 #endif
 
-/// Incompatible type information provided by a topic.
-typedef struct RMW_PUBLIC_TYPE rmw_incompatible_type_status_s
+/// Used to specify if the context can only communicate through localhost.
+typedef enum RMW_PUBLIC_TYPE rmw_localhost_only_e
 {
-  /// Lifetime cumulative number of incompatible types detected.
-  int32_t total_count;
-  /// The incremental number of incompatible types detected since the status was read.
-  int32_t total_count_change;
-} rmw_incompatible_type_status_t;
+  /// Uses ROS_LOCALHOST_ONLY environment variable.
+  RMW_LOCALHOST_ONLY_DEFAULT = 0,
+  /// Forces using only localhost.
+  RMW_LOCALHOST_ONLY_ENABLED = 1,
+  /// Forces disabling localhost only.
+  RMW_LOCALHOST_ONLY_DISABLED = 2,
+} rmw_localhost_only_t;
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif  // RMW__EVENTS_STATUSES__INCOMPATIBLE_TYPE_H_
+#endif  // RMW__LOCALHOST_H_

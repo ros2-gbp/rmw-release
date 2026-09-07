@@ -1,4 +1,4 @@
-// Copyright 2018 Open Source Robotics Foundation, Inc.
+// Copyright 2020 Open Source Robotics Foundation, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,29 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <stddef.h>
+#include "gmock/gmock.h"
+#include "rmw/loaned_message_sequence.h"
 
-#include "rmw/domain_id.h"
-#include "rmw/init.h"
-#include "rmw/init_options.h"
-
-#ifdef __cplusplus
-extern "C"
+TEST(rmw_loaned_message_sequence, get_zero_init)
 {
-#endif
-
-rmw_context_t
-rmw_get_zero_initialized_context(void)
-{
-  return (const rmw_context_t) {
-           .instance_id = 0,
-           .implementation_identifier = NULL,
-           .options = rmw_get_zero_initialized_init_options(),
-           .actual_domain_id = 0u,
-           .impl = NULL
-  };  // NOLINT(readability/braces): false positive
+  rmw_loaned_message_sequence_t sequence = rmw_get_zero_initialized_loaned_message_sequence();
+  EXPECT_EQ(sequence.message_sequence, nullptr);
+  EXPECT_EQ(sequence.size, 0u);
+  EXPECT_EQ(sequence.capacity, 0u);
 }
-
-#ifdef __cplusplus
-}
-#endif
