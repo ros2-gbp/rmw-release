@@ -2,42 +2,11 @@
 Changelog for package rmw
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-7.11.2 (2026-09-07)
--------------------
-* Add missing stdbool.h include to time.h (`#423 <https://github.com/ros2/rmw/issues/423>`_)
-* Contributors: banerjs-overland
-
-7.11.1 (2026-07-15)
--------------------
-* use C++ 20 in default. (`#422 <https://github.com/ros2/rmw/issues/422>`_)
-* Only apply fvisibility-inlines-hidden when language is CXX (`#418 <https://github.com/ros2/rmw/issues/418>`_)
-* Contributors: Maurice Alexander Purnawan, Tomoya Fujita
-
-7.11.0 (2026-05-06)
--------------------
-
-7.10.1 (2026-04-09)
--------------------
-* find_package ament_cmake_gtest (`#417 <https://github.com/ros2/rmw/issues/417>`_)
-* Contributors: Shane Loretz
-
-7.10.0 (2026-04-02)
--------------------
-* Add acceptable_buffer_backends field in rmw_subscription_options_s (`#416 <https://github.com/ros2/rmw/issues/416>`_)
-* Add is_cft_supported field to rmw_subscription_t for content filtering support (`#415 <https://github.com/ros2/rmw/issues/415>`_)
-* Remove default from switch with enum, so that compiler warns. (`#414 <https://github.com/ros2/rmw/issues/414>`_)
-* Contributors: Barry Xu, CY Chen, Tomoya Fujita
-
-7.9.1 (2025-11-18)
+7.8.3 (2026-09-07)
 ------------------
-* add: get clients, servers info (`#371 <https://github.com/ros2/rmw//issues/371>`_)
-* Fix REP url locations (`#406 <https://github.com/ros2/rmw//issues/406>`_)
-* Update link to rmw API docs (`#405 <https://github.com/ros2/rmw//issues/405>`_)
-* Don't assume a DDS-based implementation in function docs (`#402 <https://github.com/ros2/rmw//issues/402>`_)
-* Contributors: Christophe Bedard, Minju, Lee, Tim Clephas
-
-7.9.0 (2025-04-28)
-------------------
+* Add missing stdbool.h include to time.h (`#423 <https://github.com/ros2/rmw/issues/423>`_) (`#426 <https://github.com/ros2/rmw/issues/426>`_)
+* Fix REP url locations (`#406 <https://github.com/ros2/rmw/issues/406>`_) (`#407 <https://github.com/ros2/rmw/issues/407>`_)
+* Contributors: mergify[bot]
 
 7.8.2 (2025-04-18)
 ------------------

@@ -7,6 +7,12 @@ if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
 endif()
 
+# Default to C++17
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+endif()
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -36,8 +42,6 @@ set(rmw_sources
   "src/qos_string_conversions.c"
   "src/sanity_checks.c"
   "src/security_options.c"
-  "src/service_endpoint_info_array.c"
-  "src/service_endpoint_info.c"
   "src/subscription_content_filter_options.c"
   "src/subscription_options.c"
   "src/time.c"
@@ -57,9 +61,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
   rcutils::rcutils
   rosidl_dynamic_typesupport::rosidl_dynamic_typesupport
   rosidl_runtime_c::rosidl_runtime_c
-  # Note we link public on purpose, as we want to export
-  # the used C++ version as minimum to all consuming packages
-  ament_cmake_ros_core::ament_ros_cxx_standard
 )
 
 if(BUILD_TESTING AND NOT RCUTILS_DISABLE_FAULT_INJECTION)
