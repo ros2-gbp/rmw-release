@@ -1,3 +1,28 @@
+## rmw (jazzy) - 7.3.4-1
+
+The packages in the `rmw` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release --rosdistro jazzy --track jazzy rmw` on `Mon, 07 Sep 2026 18:58:27 -0000`
+
+These packages were released:
+- `rmw`
+- `rmw_implementation_cmake`
+
+Version of package(s) in repository `rmw`:
+
+- upstream repository: https://github.com/ros2/rmw.git
+- release repository: https://github.com/ros2-gbp/rmw-release.git
+- rosdistro version: `7.3.3-1`
+- old version: `7.3.3-1`
+- new version: `7.3.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.14.3`
+- catkin_pkg version: `1.1.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.1.0`
+- vcstools version: `0.1.42`
+
+
 ## rmw (kilted) - 7.8.3-1
 
 The packages in the `rmw` repository were released into the `kilted` distro by running `/usr/bin/bloom-release --rosdistro kilted --track kilted rmw` on `Mon, 07 Sep 2026 18:55:26 -0000`
